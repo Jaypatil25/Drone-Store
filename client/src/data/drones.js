@@ -432,50 +432,19 @@ export const drones = [
     isFeatured: false,
     description: "The FIMI X8 SE 2022 offers excellent value with a 48MP Sony sensor, 35-minute flight time, and 10km transmission range at a mid-range price point.",
     shortDescription: "Value king with 48MP Sony sensor"
-  },
-  {
-    id: 15,
-    name: "Ryze Tello",
-    brand: "Ryze",
-    category: "Beginner",
-    price: 99,
-    originalPrice: 129,
-    discount: 23,
-    rating: 4.0,
-    reviewCount: 1243,
-    images: [
-      "https://images.unsplash.com/photo-1508614589041-895b88991e3e?w=600",
-      "https://images.unsplash.com/photo-1527977966376-1c8408f9f108?w=600",
-      "https://images.unsplash.com/photo-1507582020474-9a35b7d455d9?w=600"
-    ],
-    flightTime: "13 min",
-    maxSpeed: "29 km/h",
-    maxRange: "100m",
-    camera: "5MP 720p HD",
-    weight: "80g",
-    windResistance: "Level 3",
-    maxAltitude: "30m",
-    features: ["Powered by DJI Tech", "Programmable (Scratch)", "Throw & Go", "8D Flips", "Intel Processor"],
-    inStock: true,
-    stockCount: 100,
-    isNew: false,
-    isBestseller: true,
-    isFeatured: false,
-    description: "Powered by DJI technology, the Ryze Tello is the perfect starter drone for kids and beginners. Program it with Scratch and perform amazing aerial tricks.",
-    shortDescription: "DJI-powered beginner drone for all ages"
   }
 ];
 
 export const categories = [
-  { name: "Racing Drones", emoji: "🏎️", slug: "Racing", count: 0 },
-  { name: "Camera Drones", emoji: "📸", slug: "Camera", count: 5 },
-  { name: "Mini Drones", emoji: "🔬", slug: "Mini", count: 3 },
-  { name: "Enterprise Grade", emoji: "🎯", slug: "Enterprise", count: 3 },
-  { name: "FPV Freestyle", emoji: "⚡", slug: "FPV", count: 2 },
-  { name: "Beginner Kits", emoji: "🎓", slug: "Beginner", count: 2 }
+  { name: "Racing Drones", slug: "Racing", count: 0 },
+  { name: "Camera Drones", slug: "Camera", count: 5 },
+  { name: "Mini Drones", slug: "Mini", count: 3 },
+  { name: "Enterprise Grade", slug: "Enterprise", count: 3 },
+  { name: "FPV Freestyle", slug: "FPV", count: 2 },
+  { name: "Beginner Kits", slug: "Beginner", count: 1 }
 ];
 
-export const brands = ["DJI", "Autel", "Skydio", "Parrot", "Holy Stone", "Potensic", "FIMI", "Ryze"];
+export const brands = ["DJI", "Autel", "Skydio", "Parrot", "Holy Stone", "Potensic", "FIMI"];
 
 export const reviews = [
   { id: 1, name: "Alex Chen", avatar: "AC", rating: 5, drone: "DJI Mavic 3 Pro", text: "Absolutely incredible image quality. The Hasselblad camera is a game-changer for aerial photography." },

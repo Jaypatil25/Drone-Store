@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Rocket, Shield, Wrench, Globe, ChevronRight, Mail } from 'lucide-react';
-import { drones, categories, reviews } from '@/data/drones';
+import { ArrowRight, Rocket, Shield, Wrench, Globe, Mail, Users, Package, Star, Zap } from 'lucide-react';
+import { drones, reviews } from '@/data/drones';
 import DroneCard from '@/components/DroneCard';
 import GlassCard from '@/components/GlassCard';
 import CountdownTimer from '@/components/CountdownTimer';
@@ -59,12 +59,13 @@ const Home = () => {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16">
             {[
-              { label: 'Happy Pilots', value: '50,000+' },
-              { label: 'Drones', value: '200+' },
-              { label: 'Rating', value: '4.9★' },
-              { label: 'Delivery', value: 'Next Day' },
+              { icon: Users, label: 'Happy Pilots', value: '50,000+' },
+              { icon: Package, label: 'Drones', value: '200+' },
+              { icon: Star, label: 'Rating', value: '4.9' },
+              { icon: Zap, label: 'Delivery', value: 'Next Day' },
             ].map((stat, i) => (
               <GlassCard key={i} className="p-4 text-center" hover={false}>
+                <stat.icon size={22} className="text-primary mx-auto mb-2" />
                 <div className="font-display font-bold text-2xl text-primary">{stat.value}</div>
                 <div className="text-sm text-muted-foreground mt-1">{stat.label}</div>
               </GlassCard>
@@ -96,27 +97,6 @@ const Home = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {featured.map((drone, i) => (
               <DroneCard key={drone.id} drone={drone} index={i} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Categories */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="font-display font-bold text-4xl text-center mb-12">Shop by Category</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {categories.map((cat, i) => (
-              <Link key={i} to={`/drones?category=${cat.slug}`}>
-                <GlassCard className="p-6 group cursor-pointer">
-                  <div className="text-4xl mb-3">{cat.emoji}</div>
-                  <h3 className="font-display font-semibold text-lg">{cat.name}</h3>
-                  <div className="flex items-center justify-between mt-2">
-                    <span className="text-sm text-muted-foreground">{cat.count} drones</span>
-                    <ChevronRight size={16} className="text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </div>
-                </GlassCard>
-              </Link>
             ))}
           </div>
         </div>

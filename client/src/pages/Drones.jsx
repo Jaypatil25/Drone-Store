@@ -1,8 +1,17 @@
 import { useState, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Search, SlidersHorizontal, Grid3X3, List, X } from 'lucide-react';
+import { Search, SlidersHorizontal, Grid3X3, List, X, Flag, Camera, Minimize2, Building2, Crosshair, GraduationCap } from 'lucide-react';
 import { drones, categories, brands } from '@/data/drones';
 import DroneCard from '@/components/DroneCard';
+
+const categoryIcons = {
+  Racing: Flag,
+  Camera: Camera,
+  Mini: Minimize2,
+  Enterprise: Building2,
+  FPV: Crosshair,
+  Beginner: GraduationCap,
+};
 import GlassCard from '@/components/GlassCard';
 
 const DronesPage = () => {
@@ -79,7 +88,9 @@ const DronesPage = () => {
 
       <div>
         <h4 className="font-display font-semibold text-sm mb-2">Category</h4>
-        {categories.map(cat => (
+        {categories.map(cat => {
+            const CatIcon = categoryIcons[cat.slug];
+            return (
           <label key={cat.slug} className="flex items-center gap-2 py-1 cursor-pointer">
             <input
               type="checkbox"
@@ -87,9 +98,13 @@ const DronesPage = () => {
               onChange={() => toggleCategory(cat.slug)}
               className="rounded accent-primary"
             />
-            <span className="text-sm">{cat.emoji} {cat.name}</span>
+            <span className="text-sm flex items-center gap-1.5">
+                <CatIcon size={14} className="text-primary" />
+                {cat.name}
+              </span>
           </label>
-        ))}
+            );
+          })}
       </div>
 
       <div>
