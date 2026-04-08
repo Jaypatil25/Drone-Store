@@ -14,7 +14,6 @@ export const useOrderStore = create((set, get) => ({
   },
 
   addOrder: async (order, userId = null) => {
-    // Optimistic local order for immediate UI feedback
     const localOrder = {
       ...order,
       id: 'DRX-' + Date.now(),
@@ -40,7 +39,6 @@ export const useOrderStore = create((set, get) => ({
           }),
         });
         const data = await res.json();
-        // Replace optimistic order with real one
         set({ orders: [data, ...get().orders.filter(o => o.id !== localOrder.id)] });
       } catch { /* keep optimistic */ }
     }

@@ -5,12 +5,10 @@ const API = import.meta.env.VITE_API_URL || '/api';
 export const useCartStore = create((set, get) => ({
   items: [],
 
-  // Load cart from server for logged-in user
   fetchCart: async (userId) => {
     try {
       const res = await fetch(`${API}/cart/${userId}`);
       const data = await res.json();
-      // Normalize server items to match local shape
       const items = data.map(i => ({
         ...i.product,
         cartItemId: i.id,
@@ -24,8 +22,6 @@ export const useCartStore = create((set, get) => ({
     const items = get().items;
     const existing = items.find(i => i.id === drone.id);
     const newQty = existing ? existing.quantity + quantity : quantity;
-
-    // Optimistic update
     if (existing) {
       set({ items: items.map(i => i.id === drone.id ? { ...i, quantity: newQty } : i) });
     } else {
@@ -40,7 +36,6 @@ export const useCartStore = create((set, get) => ({
           body: JSON.stringify({ userId, productId: drone.id, quantity: newQty }),
         });
         const data = await res.json();
-        // Update cartItemId for future deletes
         set({ items: get().items.map(i => i.id === drone.id ? { ...i, cartItemId: data.id } : i) });
       } catch { /* keep optimistic */ }
     }

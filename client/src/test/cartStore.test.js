@@ -1,11 +1,9 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
 
-// Mock fetch globally before importing the store
 global.fetch = vi.fn(() =>
   Promise.resolve({ json: () => Promise.resolve({ id: 10 }) })
 );
 
-// Reset module between tests so store state is fresh
 beforeEach(async () => {
   vi.resetModules();
   global.fetch = vi.fn(() =>
@@ -15,7 +13,6 @@ beforeEach(async () => {
 
 async function freshStore() {
   const { useCartStore } = await import("../store/cartStore");
-  // Reset state
   useCartStore.setState({ items: [] });
   return useCartStore;
 }

@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const prisma = require("../prisma");
 
-// GET all products (with optional filters)
 router.get("/", async (req, res) => {
   const { category, purpose, experience } = req.query;
   const where = {};
@@ -12,14 +11,12 @@ router.get("/", async (req, res) => {
   res.json(products);
 });
 
-// GET single product
 router.get("/:id", async (req, res) => {
   const product = await prisma.product.findUnique({ where: { id: +req.params.id } });
   if (!product) return res.status(404).json({ error: "Not found" });
   res.json(product);
 });
 
-// POST create product
 router.post("/", async (req, res) => {
   try {
     const product = await prisma.product.create({ data: req.body });
@@ -29,7 +26,6 @@ router.post("/", async (req, res) => {
   }
 });
 
-// PUT update product
 router.put("/:id", async (req, res) => {
   try {
     const product = await prisma.product.update({
@@ -42,7 +38,6 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-// DELETE product
 router.delete("/:id", async (req, res) => {
   try {
     await prisma.product.delete({ where: { id: +req.params.id } });

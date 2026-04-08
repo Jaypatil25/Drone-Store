@@ -1,9 +1,8 @@
 import { describe, it, expect, beforeEach, vi } from "vitest";
 
-// Make persist a no-op so tests don't need localStorage
 vi.mock("zustand/middleware", async (importOriginal) => {
-  const actual = await importOriginal<typeof import("zustand/middleware")>();
-  return { ...actual, persist: (fn: unknown) => fn };
+  const actual = await importOriginal();
+  return { ...actual, persist: (fn) => fn };
 });
 
 import { useWishlistStore } from "../store/wishlistStore";
