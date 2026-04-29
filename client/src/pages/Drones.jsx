@@ -197,14 +197,14 @@ const DronesPage = () => {
         </div>
 
         <div className="flex gap-8">
-          {/* Desktop sidebar */}
+          
           <div className="hidden md:block w-64 shrink-0">
             <GlassCard className="p-5 sticky top-28" hover={false}>
               <FilterPanel />
             </GlassCard>
           </div>
 
-          {/* Mobile filter overlay */}
+          
           {showFilters && (
             <div className="fixed inset-0 z-50 md:hidden">
               <div className="absolute inset-0 bg-foreground/20" onClick={() => setShowFilters(false)} />
@@ -218,7 +218,7 @@ const DronesPage = () => {
             </div>
           )}
 
-          {/* Grid */}
+          
           <div className="flex-1">
             {filtered.length === 0 ? (
               <div className="text-center py-20">

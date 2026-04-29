@@ -5,48 +5,71 @@ on:
     branches: ["**"]
   pull_request:
     branches: ["**"]
+  workflow_call: 
 
 jobs:
-  server:
-    name: Server – Install / Lint / Test
+  lint-server:
+    name: Lint – Server
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: server
-
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
           cache-dependency-path: server/package-lock.json
-
       - run: npm ci
-
       - run: npm run lint
 
-      - run: npm test
-
-  client:
-    name: Client – Install / Lint / Test
+  lint-client:
+    name: Lint – Client
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: client
-
     steps:
       - uses: actions/checkout@v4
-
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
           cache-dependency-path: client/package-lock.json
-
       - run: npm ci
-
       - run: npm run lint
 
+  test-server:
+    name: Test – Server
+    needs: lint-server
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: server
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: server/package-lock.json
+      - run: npm ci
       - run: npm test
+
+  test-client:
+    name: Test – Client
+    needs: lint-client
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: client
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: client/package-lock.json
+      - run: npm ci
+      - run: npm test -- --run

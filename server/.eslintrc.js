@@ -1,9 +1,19 @@
 module.exports = {
-  env: { node: true, es2021: true, jest: true },
-  extends: "eslint:recommended",
-  parserOptions: { ecmaVersion: "latest" },
-  rules: {
-    "no-unused-vars": "warn",
-    "no-console": "off",
+  env: {
+    node: true,
+    es2021: true,
+    jest: true,
   },
-};
+  extends: ["eslint:recommended", "prettier"],
+  parserOptions: {
+    ecmaVersion: "latest",
+    sourceType: "module",
+  },
+  rules: {
+    "no-unused-vars": ["warn", { argsIgnorePattern: "^_" }],
+    "no-console": ["warn", { allow: ["warn", "error"] }],
+    "prefer-const": "warn",
+    "no-var": "warn",
+  },
+}
+

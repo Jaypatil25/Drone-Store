@@ -52,7 +52,7 @@ const DroneDetail = () => {
         </Link>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Images */}
+          
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <GlassCard className="p-4 overflow-hidden" hover={false}>
               <div className="aspect-square rounded-xl overflow-hidden bg-muted/20">
@@ -78,7 +78,7 @@ const DroneDetail = () => {
             </GlassCard>
           </motion.div>
 
-          {/* Info */}
+          
           <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
             <span className="px-3 py-1 rounded-full glass text-xs font-semibold uppercase tracking-wider">{drone.brand}</span>
             <h1 className="font-display font-bold text-3xl md:text-4xl mt-3">{drone.name}</h1>
@@ -100,7 +100,7 @@ const DroneDetail = () => {
 
             <p className="text-muted-foreground mt-4">{drone.description}</p>
 
-            {/* Quantity */}
+            
             <div className="flex items-center gap-4 mt-6">
               <span className="text-sm font-medium">Quantity:</span>
               <div className="flex items-center gap-2 glass rounded-full px-2 py-1">
@@ -110,7 +110,7 @@ const DroneDetail = () => {
               </div>
             </div>
 
-            {/* Buttons */}
+            
             <div className="space-y-3 mt-6">
               <button
                 onClick={() => { addToCart(drone, quantity); toast.success(`${drone.name} added to cart!`); }}
@@ -150,7 +150,7 @@ const DroneDetail = () => {
               </div>
             </div>
 
-            {/* Trust badges */}
+            
             <div className="flex items-center gap-4 mt-6 text-sm">
               <div className="flex items-center gap-1 text-muted-foreground"><Truck size={14} className="text-secondary" /> Free delivery</div>
               <div className="flex items-center gap-1 text-muted-foreground"><Shield size={14} className="text-secondary" /> 2yr warranty</div>
@@ -165,7 +165,7 @@ const DroneDetail = () => {
           </motion.div>
         </div>
 
-        {/* Tabs */}
+        
         <div className="mt-16">
           <div className="flex gap-1 glass rounded-full p-1 w-fit mx-auto">
             {['specs', 'features', 'box', 'reviews'].map(tab => (
@@ -226,7 +226,7 @@ const DroneDetail = () => {
           </div>
         </div>
 
-        {/* Related */}
+        
         {related.length > 0 && (
           <div className="mt-20">
             <h2 className="font-display font-bold text-2xl mb-8">You Might Also Like</h2>

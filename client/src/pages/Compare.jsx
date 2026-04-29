@@ -78,7 +78,7 @@ const Compare = () => {
           })}
         </div>
 
-        {/* Spec table */}
+        
         {items.length >= 2 && (
           <GlassCard className="overflow-x-auto" hover={false}>
             <table className="w-full">
@@ -102,7 +102,7 @@ const Compare = () => {
           </GlassCard>
         )}
 
-        {/* Picker modal */}
+        
         {showPicker && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             <div className="absolute inset-0 bg-foreground/20" onClick={() => setShowPicker(false)} />

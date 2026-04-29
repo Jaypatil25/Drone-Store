@@ -15,7 +15,7 @@ const Home = () => {
 
   return (
     <div className="relative">
-      {/* Hero */}
+      
       <section className="min-h-screen flex items-center pt-24 pb-16">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -56,7 +56,7 @@ const Home = () => {
             </motion.div>
           </div>
 
-          {/* Stats */}
+          
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16">
             {[
               { icon: Users, label: 'Happy Pilots', value: '50,000+' },
@@ -74,7 +74,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Marquee */}
+      
       <section className="py-6 glass overflow-hidden">
         <div className="animate-marquee whitespace-nowrap flex items-center gap-12">
           {['DJI', 'Autel Robotics', 'Parrot', 'Skydio', 'Holy Stone', 'Potensic', 'Ryze', 'Hubsan', 'FIMI', 'Walkera',
@@ -85,7 +85,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Featured */}
+      
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
@@ -102,7 +102,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Bestsellers */}
+      
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="font-display font-bold text-4xl text-center mb-12">Top Picks This Week</h2>
@@ -114,7 +114,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Why DroniX */}
+      
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="font-display font-bold text-4xl text-center mb-12">Why DroniX?</h2>
@@ -137,7 +137,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Compare Teaser */}
+      
       <section className="py-20">
         <div className="container mx-auto px-4">
           <GlassCard className="p-8 md:p-12" hover={false}>
@@ -166,7 +166,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Deals */}
+      
       <section className="py-20">
         <div className="container mx-auto px-4">
           <GlassCard className="p-8 md:p-12 border-2 border-primary/20" hover={false}>
@@ -188,7 +188,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
+      
       <section className="py-20">
         <div className="container mx-auto px-4">
           <h2 className="font-display font-bold text-4xl text-center mb-12">From the Pilot Community</h2>
@@ -215,7 +215,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Newsletter */}
+      
       <section className="py-20">
         <div className="container mx-auto px-4">
           <GlassCard className="p-8 md:p-12 text-center" hover={false}>

@@ -15,7 +15,7 @@ export const useCartStore = create((set, get) => ({
         quantity: i.quantity,
       }));
       set({ items });
-    } catch { /* keep local state */ }
+    } catch {}
   },
 
   addItem: async (drone, quantity = 1, userId = null) => {
@@ -37,18 +37,14 @@ export const useCartStore = create((set, get) => ({
         });
         const data = await res.json();
         set({ items: get().items.map(i => i.id === drone.id ? { ...i, cartItemId: data.id } : i) });
-      } catch { /* keep optimistic */ }
-    }
-  },
-
-  removeItem: async (id, userId = null) => {
+      } catch {}
     const item = get().items.find(i => i.id === id);
     set({ items: get().items.filter(i => i.id !== id) });
 
     if (userId && item?.cartItemId) {
       try {
         await fetch(`${API}/cart/${item.cartItemId}`, { method: 'DELETE' });
-      } catch { /* keep optimistic */ }
+      } catch {}
     }
   },
 
@@ -67,7 +63,7 @@ export const useCartStore = create((set, get) => ({
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ userId, productId: id, quantity }),
         });
-      } catch { /* keep optimistic */ }
+      } catch {}
     }
   },
 
@@ -76,7 +72,7 @@ export const useCartStore = create((set, get) => ({
     if (userId) {
       try {
         await fetch(`${API}/cart/user/${userId}`, { method: 'DELETE' });
-      } catch { /* keep optimistic */ }
+      } catch {}
     }
   },
 

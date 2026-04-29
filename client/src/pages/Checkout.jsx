@@ -35,7 +35,7 @@ const Checkout = () => {
   return (
     <div className="pt-28 pb-16">
       <div className="container mx-auto px-4 max-w-3xl">
-        {/* Stepper */}
+        
         <div className="flex items-center justify-center gap-4 mb-12">
           {['Shipping', 'Payment', 'Confirm'].map((step, i) => (
             <div key={step} className="flex items-center gap-2">

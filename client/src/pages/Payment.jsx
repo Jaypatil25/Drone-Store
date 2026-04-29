@@ -50,7 +50,7 @@ const Payment = () => {
   return (
     <div className="pt-28 pb-16">
       <div className="container mx-auto px-4 max-w-3xl">
-        {/* Stepper */}
+        
         <div className="flex items-center justify-center gap-4 mb-12">
           {['Shipping', 'Payment', 'Confirm'].map((step, i) => (
             <div key={step} className="flex items-center gap-2">
@@ -84,7 +84,7 @@ const Payment = () => {
 
           {method === 'card' && (
             <>
-              {/* Visual Card */}
+              
               <div className="mb-8 perspective-1000">
                 <div className={`w-full max-w-sm mx-auto aspect-[1.6/1] rounded-2xl p-6 text-primary-foreground relative transition-transform duration-500 ${flipped ? 'rotate-y-180' : ''}`}
                   style={{ background: 'linear-gradient(135deg, hsl(220, 100%, 50%), hsl(220, 80%, 35%))' }}

@@ -5,5 +5,12 @@ dist
 build
 coverage
 .vercel
+*.log
+*.local
+prisma/*.db
+prisma/*.db-journal
+server/package.json
+server/package-lock.json
+server/package-lock.json
 client/package-lock.json
-package-lock.json
+client/package.json

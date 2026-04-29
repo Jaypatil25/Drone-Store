@@ -10,7 +10,7 @@ export const useOrderStore = create((set, get) => ({
       const res = await fetch(`${API}/orders/${userId}`);
       const data = await res.json();
       set({ orders: data });
-    } catch { /* keep local */ }
+    } catch {}
   },
 
   addOrder: async (order, userId = null) => {
@@ -40,7 +40,7 @@ export const useOrderStore = create((set, get) => ({
         });
         const data = await res.json();
         set({ orders: [data, ...get().orders.filter(o => o.id !== localOrder.id)] });
-      } catch { /* keep optimistic */ }
+      } catch {}
     }
   },
 }));

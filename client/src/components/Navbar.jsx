@@ -137,7 +137,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile menu overlay */}
+      
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
